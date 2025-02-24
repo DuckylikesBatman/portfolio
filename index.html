@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimo's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body class="index-page">
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
+    <!-- Main Content -->
+    <main class="index-main">
+        <header class="index-header">
+            <h1>Welcome to Mimo's Portfolio</h1>
+            <p>Discover my work, explore my interests, and connect with me.</p>
+        </header>
+
+        <!-- Navigation Boxes -->
+        <section class="index-navigation">
+            <a href="MyCv.html" class="index-box index-cv-box">
+                <i class="fas fa-user index-box-icon"></i>
+                <h2>My CV</h2>
+            </a>
+            <a href="Schedule.html" class="index-box index-schedule-box">
+                <i class="fas fa-calendar-alt index-box-icon"></i>
+                <h2>My Schedule</h2>
+            </a>
+            <a href="contact.html" class="index-box index-contact-box">
+                <i class="fas fa-envelope index-box-icon"></i>
+                <h2>Contact Me</h2>
+            </a>
+            <a href="quiz.html" class="index-box index-quiz-box">
+                <i class="fas fa-puzzle-piece index-box-icon"></i>
+                <h2>Quiz</h2>
+            </a>
+        </section>
+    </main>
+
+   <!-- Footer -->
+<footer class="index-footer">
+    <p>&copy; 2024 Maher Abou Diab. Designed with ❤️ and creativity.</p>
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="social-icon">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="social-icon">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</footer>
+
+
+    <!-- Particles.js Configuration -->
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": ["#007BFF", "#1a575a", "#2d2d44", "#ff7e5f", "#feb47b"]
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#fff"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true
+                },
+                "size": {
+                    "value": 5,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#fff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 3,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 200,
+                        "line_linked": {
+                            "opacity": 0.7
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8
+                    },
+                    "repulse": {
+                        "distance": 200
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>

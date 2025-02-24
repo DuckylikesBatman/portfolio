@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimo's Quiz Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="quiz-page">
+    <nav class="quiz-nav">
+        <a href="index.html" class="nav-button">Home</a>
+        <a href="myCv.html" class="nav-button">My CV</a>
+        <a href="schedule.html" class="nav-button">My Schedule</a>
+        <a href="contact.html" class="nav-button">Contact Me</a>
+    </nav>
+
+    <header class="quiz-header">
+        <h1>Welcome to Mimo's Quiz Page</h1>
+        <p>Explore fun quizzes and challenge your knowledge!</p>
+    </header>
+
+    <main class="quiz-main">
+        <!-- Name input section -->
+        <div id="nameInputSection">
+            <h2>Before we start, please enter your name:</h2>
+            <input type="text" id="userName" placeholder="Enter your name" required>
+            <button onclick="startQuizPage()">Start Quiz</button>
+        </div>
+
+        <!-- Quiz categories -->
+        <div id="quizCategorySection" style="display: none;">
+            <h2 class="quiz-title">Choose a Quiz Category</h2>
+            <div class="quiz-selectors">
+                <div class="quiz-box" onclick="startQuiz('math')">
+                    <div class="quiz-box-content">
+                        <img src="images/Math.png" alt="Math Icon" class="quiz-type-image">
+                        <h3>Math Quiz</h3>
+                    </div>
+                </div>
+
+                <div class="quiz-box" onclick="startQuiz('science')">
+                    <div class="quiz-box-content">
+                        <img src="images/Science.png" alt="Science Icon" class="quiz-type-image">
+                        <h3>Science Quiz</h3>
+                    </div>
+                </div>
+
+                <div class="quiz-box" onclick="startQuiz('history')">
+                    <div class="quiz-box-content">
+                        <img src="images/History.png" alt="History Icon" class="quiz-type-image">
+                        <h3>History Quiz</h3>
+                    </div>
+                </div>
+
+                <div class="quiz-box" onclick="startQuiz('geography')">
+                    <div class="quiz-box-content">
+                        <img src="images/Geography.png" alt="Geography Icon" class="quiz-type-image">
+                        <h3>Geography Quiz</h3>
+                    </div>
+                </div>
+
+                <div class="quiz-box" onclick="startQuiz('art')">
+                    <div class="quiz-box-content">
+                        <img src="images/Art.png" alt="Art Icon" class="quiz-type-image">
+                        <h3>Art Quiz</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quizContainer" class="quiz-section" style="display: none;">
+            <h3 id="quizTitle"></h3>
+            <p id="quizQuestion"></p>
+            <input type="text" id="quizAnswer" placeholder="Your answer here" required>
+            <button onclick="nextQuestion()">Next</button>
+        </div>
+    </main>
+
+    <footer class="quiz-footer">
+        <p>&copy; 2024 Mimo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const quizzes = {
+            math: {
+                title: "Math Quiz",
+                questions: [
+                    "What is 5 + 7?",
+                    "Solve for x: 2x = 10.",
+                    "What is the square root of 49?",
+                    "What is 15% of 200?",
+                    "What is 8 * 12?",
+                    "What is 100 divided by 4?",
+                    "What is 2 to the power of 3?",
+                    "What is the value of π to 2 decimal places?"
+                ],
+                answers: [12, 5, 7, 30, 96, 25, 8, "3.14"]
+            },
+            science: {
+                title: "Science Quiz",
+                questions: [
+                    "What planet is known as the Red Planet?",
+                    "What is the chemical symbol for water?",
+                    "What force keeps us on the ground?",
+                    "What gas do plants absorb for photosynthesis?",
+                    "What is the speed of light in a vacuum (in m/s)?",
+                    "What is the primary gas in Earth's atmosphere?",
+                    "What is the powerhouse of the cell?",
+                    "Who developed the theory of relativity?"
+                ],
+                answers: ["Mars", "H2O", "Gravity", "CO2", 299792458, "Nitrogen", "Mitochondria", "Einstein"]
+            },
+            history: {
+                title: "History Quiz",
+                questions: [
+                    "Who was the first president of the United States?",
+                    "In what year did World War II end?",
+                    "What ancient civilization built the pyramids?",
+                    "Who was known as the 'Iron Lady'?",
+                    "What year did the Berlin Wall fall?",
+                    "What is the oldest written language?",
+                    "What event started World War I?",
+                    "Who discovered America in 1492?"
+                ],
+                answers: [
+                    "George Washington",
+                    1945,
+                    "Egyptians",
+                    "Margaret Thatcher",
+                    1989,
+                    "Sumerian",
+                    "Assassination of Archduke Franz Ferdinand",
+                    "Christopher Columbus"
+                ]
+            },
+            geography: {
+                title: "Geography Quiz",
+                questions: [
+                    "What is the capital of France?",
+                    "What is the longest river in the world?",
+                    "Which country has the largest population?",
+                    "What continent is Egypt part of?",
+                    "What is the smallest country in the world?",
+                    "What is the capital of Australia?",
+                    "What country is known as the Land of the Rising Sun?",
+                    "What is the highest mountain in the world?"
+                ],
+                answers: [
+                    "Paris",
+                    "Nile",
+                    "China",
+                    "Africa",
+                    "Vatican City",
+                    "Canberra",
+                    "Japan",
+                    "Mount Everest"
+                ]
+            },
+            art: {
+                title: "Art Quiz",
+                questions: [
+                    "Who painted the Mona Lisa?",
+                    "What is the art movement led by Picasso?",
+                    "Who sculpted David?",
+                    "What is the primary color?",
+                    "What is the art style using small dots of color?",
+                    "What is the Louvre Museum famous for?",
+                    "Who painted The Starry Night?",
+                    "What city is known as the art capital of the world?"
+                ],
+                answers: [
+                    "Leonardo da Vinci",
+                    "Cubism",
+                    "Michelangelo",
+                    "Red",
+                    "Pointillism",
+                    "Art Exhibits",
+                    "Van Gogh",
+                    "Paris"
+                ]
+            }
+        };
+
+        let currentQuiz = null;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userName = '';
+
+        function startQuizPage() {
+            userName = document.getElementById("userName").value.trim();
+            if (userName) {
+                document.getElementById("nameInputSection").style.display = "none";
+                document.getElementById("quizCategorySection").style.display = "block";
+            } else {
+                alert("Please enter your name to continue.");
+            }
+        }
+
+        function startQuiz(quizType) {
+            currentQuiz = quizzes[quizType];
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById("quizTitle").innerText = `${currentQuiz.title} - ${userName}`;
+            document.getElementById("quizCategorySection").style.display = "none";
+            document.getElementById("quizContainer").style.display = "block";
+            showQuestion();
+        }
+
+        function showQuestion() {
+            if (currentQuestionIndex < currentQuiz.questions.length) {
+                document.getElementById("quizQuestion").innerText =
+                    currentQuiz.questions[currentQuestionIndex];
+                document.getElementById("quizAnswer").value = "";
+            } else {
+                alert(`${userName}, quiz complete! Your score: ${score}/${currentQuiz.questions.length}`);
+                document.getElementById("quizContainer").style.display = "none";
+            }
+        }
+
+        function nextQuestion() {
+            const answer = document.getElementById("quizAnswer").value.trim().toLowerCase();
+            const correctAnswer = currentQuiz.answers[currentQuestionIndex]
+                .toString()
+                .toLowerCase();
+
+            if (answer === correctAnswer) {
+                score++;
+            }
+
+            currentQuestionIndex++;
+            showQuestion();
+        }
+    </script>
+</body>
+</html>

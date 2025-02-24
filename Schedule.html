@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimo's Weekly Schedule</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="schedule-page">
+    <!-- Interactive Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-schedule">
+        <a href="index.html" class="button-schedule">Home</a>
+        <a href="MyCv.html" class="button-schedule">My CV</a>
+        <a href="contact.html" class="button-schedule">Contact Me</a>
+        <a href="quiz.html" class="button-schedule">Quiz</a>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="schedule-header">
+        <h1>Weekly Schedule</h1>
+        <p>Stay organized with a detailed plan for the week!</p>
+    </header>
+
+    <!-- Schedule Table -->
+    <section class="schedule-section">
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8:00 - 9:15</td>
+                    <td class="subject" data-description="Instructor: Dr. Smith. Learn about major historical events.">History</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="subject" data-description="Instructor: Dr. Smith. Learn about major historical events.">History</td>
+                </tr>
+                <tr>
+                    <td>9:30 - 10:45</td>
+                    <td class="subject" data-description="Instructor: Prof. John. GUI development using modern tools.">GUI</td>
+                    <td class="subject" data-description="Instructor: Dr. Lee. Fundamentals of databases and data structures.">CSC320</td>
+                    <td></td>
+                    <td class="subject" data-description="Instructor: Dr. Lee. Fundamentals of databases and data structures.">CSC320</td>
+                    <td class="subject" data-description="Instructor: Prof. John. GUI development using modern tools.">GUI</td>
+                </tr>
+                <tr>
+                    <td>11:00 - 12:40</td>
+                    <td></td>
+                    <td class="subject" data-description="Instructor: Dr. Kim. Advanced algorithms and techniques.">CSC360</td>
+                    <td></td>
+                    <td class="subject" data-description="Instructor: Dr. Kim. Advanced algorithms and techniques.">CSC360</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14:00 - 15:40</td>
+                    <td></td>
+                    <td class="subject" data-description="Instructor: Dr. Evans. Advanced mathematics for computer science.">MATH</td>
+                    <td></td>
+                    <td class="subject" data-description="Instructor: Dr. Evans. Advanced mathematics for computer science.">MATH</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Hover Box for Class Details -->
+    <div id="hover-box" class="hover-box"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- For interactive background -->
+    <script src="script.js">  // JavaScript to handle the hover effect and show class details
+        const subjects = document.querySelectorAll('.subject');
+        const hoverBox = document.getElementById('hover-box');
+        
+        subjects.forEach(subject => {
+            subject.addEventListener('mouseenter', (event) => {
+                const description = event.target.getAttribute('data-description');
+                hoverBox.textContent = description; // Set the class details text
+                hoverBox.style.top = `${event.clientY + 10}px`; // Position the box just below the cursor
+                hoverBox.style.left = `${event.clientX + 10}px`;
+                hoverBox.classList.add('show'); // Show the box
+            });
+        
+            subject.addEventListener('mousemove', (event) => {
+                hoverBox.style.top = `${event.clientY + 10}px`; // Update position on move
+                hoverBox.style.left = `${event.clientX + 10}px`;
+            });
+        
+            subject.addEventListener('mouseleave', () => {
+                hoverBox.classList.remove('show'); // Hide the box
+            });
+        });
+        </script>
+</body>
+</html>

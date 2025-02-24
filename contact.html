@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="contact-page">
+    <nav class="nav-contact">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="myCv.html" class="nav-link">My CV</a>
+        <a href="schedule.html" class="nav-link">My Schedule</a>
+        <a href="quiz.html" class="nav-link">Quiz</a>
+    </nav>
+
+    <header class="contact-header">
+        <h1>Contact Me</h1>
+        <h2>Let's Get in Touch!</h2>
+    </header>
+
+    <main class="contact-main">
+        <div class="contact-form-container">
+            <h2>Contact Form</h2>
+            <p>If you have any questions or need assistance, please fill out the form below or use the provided details to reach me.</p>
+        
+            <form action="contactusAction.php" method="POST">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comments"></i> Message:</label>
+                    <textarea id="message" name="message" required placeholder="Write your message here"></textarea>
+                </div>
+                <button type="submit" class="contact-button">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +961 123456</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> 
+                    <a href="mailto:Maher.AbouDiab@hotmail.com">Maher.AbouDiab@hotmail.com</a>
+                </p>
+            </div>
+        </div>
+        <!-- Footer -->
+<footer class="contact-footer">
+    <p>&copy; 2024 Maher Abou Diab. Designed with ❤️ and creativity.</p>
+    <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="social-icon">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="social-icon">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com" target="_blank" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</footer>
+
+    </main>
+</body>
+</html>
